@@ -1,0 +1,132 @@
+<html lang="en">
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Stylesheet and JavaScript -->
+        <link href="styles.css" rel="stylesheet">
+
+        <!-- Font -->
+        
+        <!-- Favicon -->
+
+        <!-- Title -->
+        <title> Budget App </title>
+    </head>
+
+
+    <body> 
+        <header> 
+            <h1>Simple Budget Calculator</h1>
+        </header>
+
+            
+            <main>
+                <!-- Instructions-->
+                <p> Enter monthly income and expenses. </p>
+
+                <!-- Main Content -->
+                <div>
+                    <h2>Income:</h2>
+                    <h3>$</h3>
+                    <input id="income" class="profit" type="number">
+                </div>
+                <div>
+                    <h2>Rent:</h2>
+                    <h3>$</h3>
+                    <input id="rent" class="expense" type="number">
+                </div>
+                <div>
+                    <h2>Utilities:</h2>
+                    <h3>$</h3>
+                    <input id="utilities" class="expense" type="number">
+                </div>
+                <div>
+                    <h2>Cellphone:</h2>
+                    <h3>$</h3>
+                    <input id="cellphone" class="expense" type="number">
+                </div>
+                <div>
+                    <h2>Food:</h2>
+                    <h3>$</h3>
+                    <input id="food" class="expense" type="number">
+                </div>
+                <div>
+                    <h2>Internet:</h2>
+                    <h3>$</h3>
+                    <input id="internet" class="expense" type="number">
+                </div>
+                <div>
+                    <h2>Subscriptions:</h2>
+                    <h3>$</h3>
+                    <input id="subscriptions" class="expense" type="number">
+                </div>
+                <div>
+                    <h2>Other:</h2>
+                    <h3>$</h3>
+                    <input id="other_expense" class="expense" type="number">
+                </div>
+
+                <!-- Calculate button -->
+                <button id="calculate">Calculate</button>
+                <hr>
+                
+                <!-- Calculation Results -->
+                <div>
+                    <h2>Total Monthly Savings:</h2>
+                    <h3>$</h3>
+                    <input id="monthly_savings" class="" type="number" value="">
+                </div>
+                <div>
+                    <h2>Total Annual Savings:</h2>
+                    <h3>$</h3>
+                    <input id="annual_savings" class="" type="number" value="">
+                </div>
+            </main>
+
+
+        <footer> </footer>
+    </body>
+    
+    <script>
+
+
+        // Select the calculate button and add a listener which detects when the user clicks it. Upon being clicked subtract all expenses 
+        // from income and calculate monthly and annual addition to savings.
+        document.getElementById("calculate").addEventListener("click", () => {
+            // Get users monthly income.
+            let income = document.getElementById("income").value;
+
+            // Get users monthly expenses.
+            let expenses = 0;
+            let inputs = document.querySelectorAll(".expense");
+            for (let i = 0; i < inputs.length; i++) {
+                expenses += Number(inputs[i].value);
+            }
+
+            // Calculate monthly savings.
+            let monthly = income - expenses;
+
+            // Calculate annual savings.
+            let annual = monthly * 12;
+
+            // Display savings to user.
+            let monthly_savings = document.getElementById("monthly_savings");
+            let annual_savings = document.getElementById("annual_savings");
+
+            if (monthly < 0) {
+                monthly_savings.style.backgroundColor = "lightpink";
+                annual_savings.style.backgroundColor = "lightpink";
+            }
+            else if (monthly > 0) {
+                monthly_savings.style.backgroundColor = "lightgreen";
+                annual_savings.style.backgroundColor = "lightgreen"
+            }
+            monthly_savings.value = monthly;
+            annual_savings.value = annual;
+        });
+
+
+    </script>
+</html>

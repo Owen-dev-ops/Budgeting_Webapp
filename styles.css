@@ -1,0 +1,47 @@
+* {
+    max-width: 100%;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 40%;
+}
+
+div {
+    align-items: center; 
+    display: flex;
+    justify-content: center;
+}
+
+.expense {
+    background-color: lightpink;
+}
+
+h1 {
+    margin-left: 17px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2 {
+    margin: 20px;
+    width: 135px;
+}
+
+h3 {
+    margin: 5px;
+}
+
+hr {
+    width: 40%;
+}
+
+p { 
+    text-align: center;
+}
+
+.profit {
+    background-color: lightgreen;
+}
